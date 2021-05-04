@@ -1,21 +1,44 @@
-import React from 'react'
+import React from "react";
+import Card from "./Cards";
 
-
-const CardFonds = ({ selection }) => {
-
-  //Définir une variable text qui change en fonction de la props selection qui lui change en fonction de la valeur de l'event déclenché dans le selcteur. 
-  let text =
-    selection === "date" ? "Les plus récentes" :
-      selection === "popularity" ? "Les plus populaires" :
-        selection === "trending" ? "Top 10 trending" : ""
-
+const CardFonds = ({
+  fonts,
+  text,
+  fontSize,
+  selection,
+}) => {
+  const titleSort = () => {
+    switch (selection) {
+      case "date":
+        return "Les plus récentes";
+      case "popularity":
+        return "Les plus populaires";
+      case "trending":
+        return "Top 10 trending";
+      default:
+        throw new Error("error: unknown selection");
+    }
+  };
   return (
     <div className="col-lg-9">
-      <section className="row mb-5">
-        <h2 className="mb-3">{text} </h2>
-      </section>
-    </div>
-  )
-}
+      <div className="row mb-5">
+        <h2 className="mb3">
+          <span className="badge bg-danger" value={selection}>
+            {titleSort()}
+          </span>
+        </h2>
+        {/* {loading && <p>Loading in progress...</p>}
+        {error && <p>{error}</p>} */}
 
-export default CardFonds
+        <Card
+          fonts={fonts}
+          text={text}
+          fontSize={fontSize}
+          
+        />
+      </div>
+    </div>
+  );
+};
+
+export default CardFonds;

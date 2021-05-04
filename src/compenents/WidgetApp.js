@@ -5,7 +5,7 @@ import TextArea from './Forms/TextArea'
 import CardFonds from './CardFonds'
 import { useState, useEffect } from "react"
 
-const WidgetApp = () => {
+const WidgetApp = (fonts) => {
 
   let [selection, setSelection] = useState("date")
 
@@ -19,7 +19,11 @@ const WidgetApp = () => {
       <PoliceSizer />
 
 
-      <CardFonds selection={selection} />
+      <CardFonds
+      fonts={fonts}
+      selection={selection}
+
+      />
 
     </div>
   )
