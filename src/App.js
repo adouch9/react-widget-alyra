@@ -1,13 +1,17 @@
-
-import './style/App.css';
 import Header from "./compenents/Header"
 import Footer from "./compenents/Footer"
+import WidgetApp from './compenents/WidgetApp';
+
+
+
+
 
 function App() {
   return (
     <div className="App">
-     <Header />
-     <Footer />
+      <Header />
+      <WidgetApp />
+      <Footer />
     </div>
   );
 }
